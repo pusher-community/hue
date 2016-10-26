@@ -6,17 +6,9 @@ provider:
   region: eu-west-1
 
 functions:
-  hello:
-    handler: handler.hello
-
-    events:
-      - http:
-          path: hello
-          method: get
-
+  
   auth:
     handler: handler.auth
-
     events:
       - http:
           path: auth

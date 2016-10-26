@@ -1,17 +1,7 @@
 'use strict';
 
-// Your first function handler
-module.exports.hello = (event, context, cb) => {
-  cb(null, { message: 'Go Serverless v1.0! Your function executed successfully!', event });
-};
-
-// You can add more handlers here, and reference them in serverless.yml
-
-var config = require('./config')
-
-var Pusher = require('pusher')
-
-var pusher = new Pusher(config.pusher)
+const Pusher = require('pusher')
+const pusher = new Pusher(require('./config').pusher)
 
 module.exports.auth = (event, context, cb) => {
 
