@@ -8,3 +8,20 @@ provider:
 functions:
   hello:
     handler: handler.hello
+
+    events:
+      - http:
+          path: hello
+          method: get
+
+  auth:
+    handler: handler.auth
+
+    events:
+      - http:
+          path: auth
+          method: post
+          cors: true
+
+plugins:
+  - pusher

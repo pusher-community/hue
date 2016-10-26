@@ -1,0 +1,12 @@
+{
+  "name": "pusher-hue-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "scripts": {},
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "pusher": "^1.5.0"
+  }
+}
