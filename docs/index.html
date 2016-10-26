@@ -1,1 +1,40 @@
-<h1>hue
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hue</title>
+  <style media="screen">
+    body {
+      text-align: center
+    }
+    #output{
+      width:7em;
+      height:7em;
+      border-radius: 100%;
+      background: #fff;
+      margin:1em auto;
+      box-shadow: #eee 2px 1px 7px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="output"></div>
+
+  <input id="input" type="color" name="color" value="#0088ff">
+
+
+  <script src="https://js.pusher.com/3.2/pusher.min.js"></script>
+  <script src="hue.js"></script>
+  <script>
+
+    hue.listen(function(color) {
+      output.style.backgroundColor = color
+    })
+
+    input.addEventListener('change', function() {
+      hue.set(input.value)
+    })
+
+  </script>
+</body>
+</html>
