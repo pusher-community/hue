@@ -1,0 +1,28 @@
+//
+// INTRODUCTION
+// ============
+//
+
+.IntroMask {
+  width: 200px;
+  height: 200px;
+  background-color: #fff;
+  border-radius: 50%;
+  animation: introMaskGrow 2200ms 1900ms cubic-bezier(0.230, 1.000, 0.320, 1.000) forwards;
+  transform-origin: 50% 50%;
+  transform: translate(-50%, -50%) scale(0);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+
+
+@keyframes introMaskGrow {
+  from {
+    transform: translate(-50%, -50%) scale(0)
+  }
+
+  to {
+    transform: translate(-50%, -50%) scale(4)
+  }
+}

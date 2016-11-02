@@ -5,20 +5,32 @@
    * Storage (backend)
 */
 
-var hue = (function(){
+let hue = (function(){
 
-  var pusher = new Pusher('58bc4d61a110f2e2f5be', {
+  let pusher = new Pusher('58bc4d61a110f2e2f5be', {
     cluster: 'eu',
     encrypted: true,
     authEndpoint: 'https://7msnbzsc3e.execute-api.eu-west-1.amazonaws.com/dev/auth'
   })
 
+  // Colours are in order clockwise from the top of the colour wheel
+  let colorSteps = [
+    "pink",
+    "orange",
+    "orange",
+    "yellow",
+    "light green",
+    "dark green",
+    "blue",
+    "purple"
+  ]
+
 
   // functions listening for colour change
-  var listeners = []
+  let listeners = []
 
 
-  var channel = pusher.subscribe('private-hue')
+  let channel = pusher.subscribe('private-hue')
 
   channel.bind('client-change', function(data) {
 
@@ -28,7 +40,7 @@ var hue = (function(){
 
   })
 
-  function debounce(fn, time, timer) {
+  let debounce = (fn, time, timer) => {
     time = time || 150
     return function(arg){
       clearTimeout(timer)
@@ -36,19 +48,19 @@ var hue = (function(){
     }
   }
 
-  var trigger = debounce(function(value){
+  let trigger = debounce(value => {
     channel.trigger('client-change', {
       color: value
     })
   })
 
   return {
-    listen: function(fn){
+    listen: fn => {
       listeners.push(fn)
     },
 
     set: function(color){
-      trigger(color)
+      trigger (color)
 
       // update listeners
       for (var i = 0; i < listeners.length; i++) {
