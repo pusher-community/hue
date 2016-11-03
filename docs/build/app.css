@@ -1,0 +1,167 @@
+* {
+  -moz-box-sizing: border-box;
+       box-sizing: border-box; }
+
+body,
+html {
+  border: 0;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  overflow: hidden; }
+
+.app {
+  width: 100%;
+  height: 100vh;
+  max-height: 100vh;
+  overflow: hidden; }
+
+.Toggle {
+  height: 240px;
+  margin: 40px auto;
+  position: relative;
+  width: 240px;
+  z-index: 2;
+  z-index: 99; }
+
+.Toggle-visual {
+  background-image: -webkit-linear-gradient(bottom, #e4e5e5 0%, #f1f6fA 100%);
+  background-image: linear-gradient(0deg, #e4e5e5 0%, #f1f6fA 100%);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 240px;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1), 0 6px 4px 0 rgba(0, 0, 0, 0.15), 0 1px 2px 0 rgba(0, 0, 0, 0.25), inset 0px -3px 0px 0px rgba(0, 0, 0, 0.1), inset 0px 1px 1px 0px rgba(255, 255, 255, 0.5);
+  height: 240px;
+  width: 240px;
+  z-index: 9; }
+
+.Toggle-shim {
+  background: transparent;
+  border-radius: 240px;
+  height: 240px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 240px;
+  z-index: 1; }
+  .Toggle-shim:before, .Toggle-shim:after {
+    content: "";
+    display: block;
+    position: absolute; }
+  .Toggle-shim:before {
+    background: url(./c60d953de0e5e36735976c30c4f347d2.svg) no-repeat center center;
+    display: block;
+    height: 20px;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    width: 40px; }
+  .Toggle-shim:after {
+    background-image: -webkit-linear-gradient(top, #f1f6fa 0%, #e0e3e7 100%);
+    background-image: linear-gradient(-180deg, #f1f6fa 0%, #e0e3e7 100%);
+    border-radius: 14px;
+    bottom: 14px;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1), 0px 1px 2px 0px rgba(30, 38, 51, 0.33), inset 0px 1px 1px 0px #fff;
+    height: 14px;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+            transform: translate(-50%, 0);
+    width: 14px; }
+
+.Toggle-outer {
+  background: url(./09652c3318fe46acc008ba73de9281da.png) no-repeat center center/cover;
+  border-radius: 50%;
+  height: 270px;
+  position: relative;
+  -webkit-transform: translate(-15px, -255px);
+          transform: translate(-15px, -255px);
+  width: 270px;
+  z-index: -1; }
+
+.Toggle-ring {
+  border-radius: 240px;
+  border: 14px solid red;
+  height: 240px;
+  width: 240px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1; }
+  .Toggle-ring.is-animating {
+    -webkit-animation: togglePulse 1000ms ease-in-out;
+            animation: togglePulse 1000ms ease-in-out; }
+
+@-webkit-keyframes togglePulse {
+  from {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 1; }
+  to {
+    -webkit-transform: scale(3);
+            transform: scale(3);
+    opacity: 0; } }
+
+@keyframes togglePulse {
+  from {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 1; }
+  to {
+    -webkit-transform: scale(3);
+            transform: scale(3);
+    opacity: 0; } }
+
+.Copy {
+  position: absolute;
+  width: 100%;
+  bottom: 30px;
+  left: 0;
+  z-index: 10;
+  text-align: center;
+  opacity: 0; }
+  .Copy code {
+    background-color: #efefef;
+    border-radius: 3px;
+    font-family: 'Space Mono', monospace;
+    color: #828282;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 5px 10px;
+    margin-top: 20px;
+    display: inline-block;
+    position: relative; }
+
+.Copy,
+.Toggle {
+  -webkit-animation: loadAnimation 1000ms 400ms cubic-bezier(0.23, 1, 0.32, 1) forwards;
+          animation: loadAnimation 1000ms 400ms cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  -webkit-transform: translateY(100px);
+          transform: translateY(100px);
+  opacity: 0; }
+
+.Copy {
+  -webkit-animation-delay: 600ms;
+          animation-delay: 600ms; }
+
+@-webkit-keyframes loadAnimation {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(100px);
+            transform: translateY(100px); }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0); } }
+
+@keyframes loadAnimation {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(100px);
+            transform: translateY(100px); }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0); } }
+
+/*# sourceMappingURL=app.css.map*/
