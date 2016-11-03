@@ -1,0 +1,108 @@
+//
+// TOGGLE
+// ======
+//
+
+$toggle-radius: 240px;
+
+.Toggle {
+  height: $toggle-radius;
+  margin: 40px auto;
+  position: relative;
+  width: $toggle-radius;
+  z-index: 2;
+  z-index: 99;
+}
+
+.Toggle-visual {
+  background-image: linear-gradient(0deg, #e4e5e5 0%, #f1f6fA 100%);
+  border: 1px solid rgba(0,0,0,0.05);
+  border-radius: $toggle-radius;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.10),
+    0 6px 4px 0 rgba(0, 0, 0, 0.15),
+    0 1px 2px 0 rgba(0, 0, 0, 0.25),
+    inset 0px -3px 0px 0px rgba(0, 0, 0, 0.10),
+    inset 0px 1px 1px 0px rgba(255,255,255,0.50);
+  height: $toggle-radius;
+  width: $toggle-radius;
+  z-index: 9;
+}
+
+.Toggle-shim {
+  background: transparent;
+  border-radius: $toggle-radius;
+  height: $toggle-radius;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: $toggle-radius;
+  z-index: 1;
+
+  &:before,
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+  }
+
+  &:before {
+    background: url('../images/toggle-hue.svg') no-repeat center center;
+    display: block;
+    height: 20px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+  }
+
+  &:after {
+    background-image: linear-gradient(-180deg, #f1f6fa 0%, #e0e3e7 100%);
+    border-radius: 14px;
+    bottom: 14px;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.10),
+      0px 1px 2px 0px rgba(30,38,51,0.33),
+      inset 0px 1px 1px 0px #fff;
+    height: 14px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 14px;
+  }
+}
+
+.Toggle-outer {
+  background: url('../images/layer-base.png') no-repeat center center / cover;
+  border-radius: 50%;
+  height: 270px;
+  position: relative;
+  transform: translate(-15px, -255px);
+  width: 270px;
+  z-index: -1;
+}
+
+.Toggle-ring {
+  border-radius: $toggle-radius;
+  border: 14px solid red;
+  height: $toggle-radius;
+  width: $toggle-radius;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+
+  &.is-animating {
+    animation: togglePulse 1000ms ease-in-out;
+  }
+
+}
+
+@keyframes togglePulse {
+  from {
+    transform: scale(0);
+    opacity: 1;
+  }
+
+  to {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
